@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Dwarf2023Spring",
-    "slug": "Dwarf2023Spring",
+    "name": "Dwarf2023Spring-app",
+    "slug": "Dwarf2023Spring-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
