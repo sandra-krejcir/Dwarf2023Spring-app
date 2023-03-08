@@ -3,7 +3,7 @@ import { Platform } from "react-native";
 import { ProblemEntity } from "./problemEntity";
 
 export class ProblemsAPI {
-    static baseUrl: string = Platform.OS === 'ios' ? 'localhost' : 'localhost';
+    static baseUrl: string = Platform.OS === 'ios' ? 'localhost' : '10.0.2.2';
 
     static async create(problem: ProblemEntity) {
         try {
@@ -11,9 +11,7 @@ export class ProblemsAPI {
             return result.data;
         }
         catch(error) {
-
         }
-        
     }
 
     static async fetchAllProblems() {
