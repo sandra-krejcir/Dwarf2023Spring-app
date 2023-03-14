@@ -23,11 +23,11 @@ export const createProblem = createAsyncThunk(
 
 
 interface ProblemsState {
-  entities: ProblemEntity[]
+  problems: ProblemEntity[]
 }
 
 const initialState = {
-  entities: [],
+  problems: [],
 } as ProblemsState
 
 // Then, handle actions in your reducers:
@@ -42,11 +42,11 @@ const problemsSlice = createSlice({
     builder.addCase(fetchAllProblems.fulfilled, (state, action) => {
       // Add user to the state array
       
-      state.entities = action.payload;
+      state.problems = action.payload;
     })
     builder.addCase(createProblem.fulfilled, (state, action) => {
         // Add user to the state array
-        state.entities.push(action.payload)
+        state.problems.push(action.payload)
     })
   },
 })

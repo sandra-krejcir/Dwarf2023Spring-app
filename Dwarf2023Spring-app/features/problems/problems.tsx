@@ -7,7 +7,7 @@ import { View, Text, TextInput, StyleSheet, Button } from 'react-native'
 
 export function Problems() {
   const count = useSelector((state: RootState) => state.counter.value)
-  const problems: ProblemEntity[] = useSelector((state: RootState) => state.problems.entities)
+  const problems: ProblemEntity[] = useSelector((state: RootState) => state.problems.problems)
   
   const dispatch = useDispatch<AppDispatch>()
 

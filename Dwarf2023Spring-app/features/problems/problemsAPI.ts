@@ -17,6 +17,8 @@ export class ProblemsAPI {
     static async fetchAllProblems() {
         try {
             const result = await axios.get("http://" + this.baseUrl + ':3003/problems')
+            console.log(result);
+            
             return result.data
         }
         catch(error) {
