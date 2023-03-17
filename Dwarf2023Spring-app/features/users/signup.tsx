@@ -2,27 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { AppDispatch, RootState } from '../../store'
 import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, TextInput, StyleSheet, Button } from 'react-native'
-import { login, signup } from './usersSlice'
+import { signup } from './usersSlice'
 import { UsersEntity } from './usersEntity'
 
-export function Login() {
-  const token: string | undefined = useSelector((state: RootState) => state.users.token)
+export function Signup() {
   const error: string | undefined = useSelector((state: RootState) => state.users.error)
   const dispatch = useDispatch<AppDispatch>()
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLoginSuccess = (event: any) => {
+  const handleSignup = (event: any) => {
     event.preventDefault();
 
-    dispatch(login(new UsersEntity(username, password)));
+    dispatch(signup(new UsersEntity(username, password)));
   }
 
   return (
       <View>
-        <Text>Login</Text>
-        <TextInput
+          <Text>Signup</Text>
+          <TextInput
               style={styles.input}
               onChangeText={setUsername}
               value={username}
@@ -32,9 +31,8 @@ export function Login() {
               onChangeText={setPassword}
               value={password}
           />
-          <Button title="Create success" onPress={handleLoginSuccess}/>
+          <Button title="Signup" onPress={handleSignup}/>
 
-          <Text>token is {token}</Text>
           <Text>{error}</Text>
       </View>
   );
@@ -46,5 +44,6 @@ const styles = StyleSheet.create({
       margin: 12,
       borderWidth: 1,
       padding: 10,
+      width: 200
     },
   });

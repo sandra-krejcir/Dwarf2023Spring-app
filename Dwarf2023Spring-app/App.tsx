@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { Counter } from './features/counter/counter';
 import { Problems } from './features/problems/problems';
 import { Login } from './features/users/login';
+import { Signup } from './features/users/signup';
 import { store } from './store'
 
 export default function App() {
@@ -11,8 +12,9 @@ export default function App() {
     <Provider store={store}>
       <View style={styles.container}>
         <Login></Login>
+        <Signup></Signup>
         <Counter></Counter>
-        <Problems></Problems>
+        {/* <Problems></Problems> */}
       </View>
     </Provider>
   );

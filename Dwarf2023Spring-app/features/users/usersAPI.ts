@@ -8,6 +8,8 @@ export class UsersAPI {
     static async signup(user: UsersEntity) {
         try {
             const result = await axios.post("http://" + this.baseUrl + ':3003/auth/signup', user);
+            console.log("back from server", result.data);
+            
             return result.data;
         }
         catch(error) {
