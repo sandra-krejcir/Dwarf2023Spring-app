@@ -19,8 +19,6 @@ export const createProblem = createAsyncThunk(
       return response
     }
   )
-  
-
 
 interface ProblemsState {
   problems: ProblemEntity[]
