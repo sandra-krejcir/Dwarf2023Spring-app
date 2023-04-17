@@ -3,11 +3,13 @@ import { Platform } from "react-native";
 import { ProblemEntity } from "./problemEntity";
 
 export class ProblemsAPI {
-    static baseUrl: string = Platform.OS === 'ios' ? 'localhost' : '10.0.2.2';
+    static myIp: string = '192.168.0.105'
 
     static async create(problem: ProblemEntity) {
         try {
-            const result = await axios.post("http://" + this.baseUrl + ':3003/problems', problem);
+            console.log("sending data", problem);
+            
+            const result = await axios.post("http://" + this.myIp + ':3003/problems', {data: problem, headers: { "Content-Type": "multipart/form-data" }});
             return result.data;
         }
         catch(error) {
@@ -16,7 +18,7 @@ export class ProblemsAPI {
 
     static async fetchAllProblems() {
         try {
-            const result = await axios.get("http://" + this.baseUrl + ':3003/problems')
+            const result = await axios.get("http://" + this.myIp + ':3003/problems')
             console.log(result);
             
             return result.data
