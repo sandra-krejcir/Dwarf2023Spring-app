@@ -19,16 +19,8 @@ export function Problems() {
   const dispatch = useDispatch<AppDispatch>()
   const [subject, setSubject] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
 
   const [photoToDisplay, setPhotoToDisplay] = useState('')
-
-  // useEffect(() => {
-  //   (async () => {
-      
-  //   })();
-  // }, []);
-
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -56,11 +48,6 @@ export function Problems() {
               value={description}
           />
           
-          <View style={styles.container}>
-            {image && <Image source={{ uri: image }} style={styles.image} />}
-            {!image && <Text>No image selected</Text>}
-          </View>
-        
         <Button title="Open camera" onPress={() => setCamera(true)}/>
         <Button title="Create problem" onPress={handleSubmit}/>
         </>}
