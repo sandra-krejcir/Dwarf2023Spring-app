@@ -30,7 +30,7 @@ export function Problems() {
   }
 
   useEffect(() => {
-    // dispatch(fetchAllProblems())
+    //dispatch(fetchAllProblems())
   }, [])
 
   return (
@@ -50,15 +50,15 @@ export function Problems() {
           
         <Button title="Open camera" onPress={() => setCamera(true)}/>
         <Button title="Create problem" onPress={handleSubmit}/>
+
         </>}
 
-    </View>
-
-       /* {problems.map((problem) => (
+       {/* {problems?.map((problem) => (
             <View key={problem?.id}>
                 <Text>{problem?.subject} - {problem?.description}</Text>
             </View>
-        ))} */
+        ))}  */}
+    </View>
   );
 }
 
