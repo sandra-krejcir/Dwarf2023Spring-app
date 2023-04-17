@@ -22,14 +22,12 @@ export function Problems() {
   const [image, setImage] = useState('');
 
   const [photoToDisplay, setPhotoToDisplay] = useState('')
-  // console.log("photoToDisplay", photoToDisplay);
-  
 
-  useEffect(() => {
-    (async () => {
+  // useEffect(() => {
+  //   (async () => {
       
-    })();
-  }, []);
+  //   })();
+  // }, []);
 
 
   const handleSubmit = (event: any) => {
