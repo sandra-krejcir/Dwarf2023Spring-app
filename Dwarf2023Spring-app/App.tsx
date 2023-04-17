@@ -11,10 +11,10 @@ export default function App() {
   return (
     <Provider store={store}>
       <View style={styles.container}>
-        <Login></Login>
+        {/* <Login></Login>
         <Signup></Signup>
-        <Counter></Counter>
-        {/* <Problems></Problems> */}
+        <Counter></Counter> */}
+        <Problems></Problems>
       </View>
     </Provider>
   );
