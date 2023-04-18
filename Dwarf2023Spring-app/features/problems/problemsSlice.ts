@@ -1,38 +1,36 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { ProblemEntity } from './problemEntity'
-import { ProblemsAPI } from './problemsAPI'
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { ProblemEntity } from "./problemEntity";
+import { ProblemsAPI } from "./problemsAPI";
 
 // First, create the thunk
 export const fetchAllProblems = createAsyncThunk(
-  'problems/fetchAllProblems', // This is a name for the thunk (must be unique) not the endpoint
+  "problems/fetchAllProblems", // This is a name for the thunk (must be unique) not the endpoint
   async (thunkAPI) => {
-    const response = ProblemsAPI.fetchAllProblems()
-    
-    return response
-  }
-)
-export const createProblem = createAsyncThunk(
-    'problems/create', // This is a name for the thunk (must be unique) not the endpoint
-    async (problem: ProblemEntity, thunkAPI) => {
-      const response = ProblemsAPI.create(problem);
-      
-      return response
-    }
-  )
-  
+    const response = ProblemsAPI.fetchAllProblems();
 
+    return response;
+  }
+);
+export const createProblem = createAsyncThunk(
+  "problems/create", // This is a name for the thunk (must be unique) not the endpoint
+  async (problem: ProblemEntity, thunkAPI) => {
+    const response = ProblemsAPI.create(problem);
+
+    return response;
+  }
+);
 
 interface ProblemsState {
-  entities: ProblemEntity[]
+  entities: ProblemEntity[];
 }
 
 const initialState = {
   entities: [],
-} as ProblemsState
+} as ProblemsState;
 
 // Then, handle actions in your reducers:
 const problemsSlice = createSlice({
-  name: 'problems',
+  name: "problems",
   initialState,
   reducers: {
     // standard reducer logic, with auto-generated action types per reducer
@@ -41,19 +39,20 @@ const problemsSlice = createSlice({
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchAllProblems.fulfilled, (state, action) => {
       // Add user to the state array
-      
+
       state.entities = action.payload;
-    })
+    });
     builder.addCase(createProblem.fulfilled, (state, action) => {
-        // Add user to the state array
-        state.entities.push(action.payload)
-    })
+      // Add user to the state array
+      console.log("hi", action.payload);
+      state.entities.push(action.payload);
+    });
   },
-})
+});
 
 // Action creators are generated for each case reducer function
 
-export default problemsSlice.reducer
+export default problemsSlice.reducer;
 
 // Later, dispatch the thunk as needed in the app
 // dispatch(fetchUserById(123))
